@@ -1,8 +1,10 @@
 #!/bin/bash
 cd /ib-gateway
 xvfb-daemon-run \
-  java -cp jts.jar:total.jar \
-  -Dsun.java2d.noddraw=true \
-  -Dswing.boldMetal=false \
-  -Dsun.locale.formatasdefault=true -Xmx512M \
-  ibgateway.GWClient .
+    java -cp jts.jar:total.jar:./IBController/IBController.jar \
+    -Dsun.java2d.noddraw=true \
+    -Dswing.boldMetal=false \
+    -Dsun.locale.formatasdefault=true \
+    -Xmx800M \
+    -XX:MaxPermSize=256M \
+    ibcontroller.IBController ./IBController/IBController.ini
